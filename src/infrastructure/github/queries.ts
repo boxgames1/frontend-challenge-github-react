@@ -11,13 +11,12 @@ export const SEARCH_REPOSITORIES_PAGINATED = gql`
 				... on Repository {
 					id
 					name
-					owner {
-						login
-					}
+					url
 					forkCount
 					stargazerCount
 				}
 			}
+			repositoryCount
 			pageInfo {
 				hasNextPage
 				endCursor

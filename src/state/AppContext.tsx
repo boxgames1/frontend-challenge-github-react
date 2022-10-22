@@ -1,17 +1,24 @@
 import { ReactNode, useContext, useState, createContext } from "react";
+import {
+	INITIAL_ITEMS_PER_PAGE,
+	INITIAL_PAGINATION_PAGE,
+	INITIAL_SEARCH_QUERY,
+} from "../constants/graphql";
 import { AppContextValues } from "../types/state";
 
 const defaultAppContextValue: AppContextValues = {
-	currentPage: 1,
+	currentPage: INITIAL_PAGINATION_PAGE,
 	currentRepositories: [],
 	repositoryCount: 0,
 	endCursor: undefined,
-	searchQuery: undefined,
+	searchQuery: INITIAL_SEARCH_QUERY,
+	itemsPerPage: INITIAL_ITEMS_PER_PAGE,
 	setRepositoryCount: () => {},
 	setCurrentRepositories: () => {},
 	setCurrentPage: () => {},
 	setEndCursor: () => {},
 	setSearchQuery: () => {},
+	setItemsPerPage: () => {},
 };
 
 const AppContext = createContext<AppContextValues>(defaultAppContextValue);
@@ -30,6 +37,9 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
 	const [currentRepositories, setCurrentRepositories] = useState(
 		defaultAppContextValue.currentRepositories
 	);
+	const [itemsPerPage, setItemsPerPage] = useState(
+		defaultAppContextValue.itemsPerPage
+	);
 	const [endCursor, setEndCursor] = useState(defaultAppContextValue.endCursor);
 	const [searchQuery, setSearchQuery] = useState(
 		defaultAppContextValue.searchQuery
@@ -40,7 +50,9 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
 		repositoryCount,
 		currentRepositories,
 		endCursor,
+		itemsPerPage,
 		searchQuery,
+		setItemsPerPage,
 		setRepositoryCount,
 		setCurrentRepositories,
 		setCurrentPage,
