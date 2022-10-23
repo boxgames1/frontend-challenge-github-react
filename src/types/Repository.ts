@@ -1,11 +1,7 @@
-export type RepositoryOwner = {
-	login: string;
-};
-
 export type Repository = {
 	id: string;
 	name: string;
-	owner: RepositoryOwner;
+	url: string;
 	forkCount: number;
 	stargazerCount: number;
 };
