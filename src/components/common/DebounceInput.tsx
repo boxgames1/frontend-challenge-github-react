@@ -5,11 +5,14 @@ import { TextField } from "@mui/material";
 type DebounceInputProps = {
 	onChange: (value: string) => void;
 	debounceTime?: number;
+	placeholder?: string;
 };
 
 const DebounceInput = ({
 	onChange,
 	debounceTime = 1500,
+	placeholder = "",
+	...restProps
 }: DebounceInputProps) => {
 	const [value, setValue] = useState("");
 
@@ -22,7 +25,8 @@ const DebounceInput = ({
 
 	return (
 		<TextField
-			label="Outlined"
+			{...restProps}
+			label={placeholder}
 			variant="outlined"
 			onChange={handleChange}
 			value={value}
