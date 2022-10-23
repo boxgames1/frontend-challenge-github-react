@@ -1,0 +1,94 @@
+{
+	"search": {
+		"__typename": "SearchResultItemConnection",
+
+		"nodes": [
+			{
+				"__typename": "Repository",
+				"id": "MDEwOlJlcG9zaXRvcnkzNjUzNTE1Ng==",
+				"name": "redux",
+				"forkCount": 15320,
+				"stargazerCount": 58787,
+				"url": "https://github.com/reduxjs/redux"
+			},
+			{
+				"__typename": "Repository",
+				"id": "MDEwOlJlcG9zaXRvcnk0Njg5MDIwMg==",
+				"name": "ReduxSimpleStarter",
+				"forkCount": 4789,
+				"stargazerCount": 3570,
+				"url": "https://github.com/StephenGrider/ReduxSimpleStarter"
+			},
+			{
+				"__typename": "Repository",
+				"id": "MDEwOlJlcG9zaXRvcnk0ODk1NzI2Mw==",
+				"name": "ReduxCasts",
+				"forkCount": 1764,
+				"stargazerCount": 2569,
+				"url": "https://github.com/StephenGrider/ReduxCasts"
+			},
+			{
+				"__typename": "Repository",
+				"id": "MDEwOlJlcG9zaXRvcnkzODkzNDQ0OQ==",
+				"name": "react-redux",
+				"forkCount": 3298,
+				"stargazerCount": 22415,
+				"url": "https://github.com/reduxjs/react-redux"
+			},
+			{
+				"__typename": "Repository",
+				"id": "MDEwOlJlcG9zaXRvcnk0NzA3MTk0MQ==",
+				"name": "redux-saga",
+				"forkCount": 2030,
+				"stargazerCount": 22310,
+				"url": "https://github.com/redux-saga/redux-saga"
+			},
+			{
+				"__typename": "Repository",
+				"id": "MDEwOlJlcG9zaXRvcnkzOTAxMzkwOQ==",
+				"name": "redux-thunk",
+				"forkCount": 1060,
+				"stargazerCount": 17382,
+				"url": "https://github.com/reduxjs/redux-thunk"
+			},
+			{
+				"__typename": "Repository",
+				"id": "MDEwOlJlcG9zaXRvcnk0NDg2OTA3OA==",
+				"name": "redux-devtools-extension",
+				"forkCount": 1060,
+				"stargazerCount": 13451,
+				"url": "https://github.com/zalmoxisus/redux-devtools-extension"
+			},
+			{
+				"__typename": "Repository",
+				"id": "MDEwOlJlcG9zaXRvcnk1MTcyNjM1MA==",
+				"name": "redux-saga-beginner-tutorial",
+				"forkCount": 520,
+				"stargazerCount": 564,
+				"url": "https://github.com/redux-saga/redux-saga-beginner-tutorial"
+			},
+			{
+				"__typename": "Repository",
+				"id": "MDEwOlJlcG9zaXRvcnk0MDAxMzQzNQ==",
+				"name": "redux-form",
+				"forkCount": 1688,
+				"stargazerCount": 12600,
+				"url": "https://github.com/redux-form/redux-form"
+			},
+			{
+				"__typename": "Repository",
+				"id": "MDEwOlJlcG9zaXRvcnk1MDE1MTA3NQ==",
+				"name": "react-redux-links",
+				"forkCount": 2461,
+				"stargazerCount": 21854,
+				"url": "https://github.com/markerikson/react-redux-links"
+			}
+		],
+		"pageInfo": {
+			"__typename": "PageInfo",
+			"hasNextPage": true,
+			"endCursor": "Y3Vyc29yOjEw"
+		},
+		"repositoryCount": 335634
+	}
+}
