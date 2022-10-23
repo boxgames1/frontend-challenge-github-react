@@ -7,10 +7,7 @@ const getClientLink = () => {
 	const httpLink = createHttpLink({
 		uri: GITHUB_GRAPHQL_API_ENDPOINT,
 	});
-	console.log("===========================");
-	console.log(" process.env");
-	console.log(env);
-	console.log("===========================");
+
 	const authLink = setContext((_, { headers }) => {
 		// get the authentication token from dotenv
 		const token = env.GITHUB_ACCESS_TOKEN;
