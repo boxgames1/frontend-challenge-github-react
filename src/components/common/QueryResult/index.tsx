@@ -1,5 +1,8 @@
 import { ApolloError } from "@apollo/client";
+import { CircularProgress, Typography } from "@mui/material";
 import { ReactNode } from "react";
+
+import * as S from "./styles";
 
 type QueryResultProps = {
 	children: ReactNode;
@@ -13,7 +16,19 @@ const QueryResult = ({ loading, error, data, children }: QueryResultProps) => {
 		return <p>ERROR: {error.message}</p>;
 	}
 	if (loading) {
-		return <p>Loading...</p>;
+		return (
+			<>
+				<S.LoadingRoot>
+					<S.LoadingInner>
+						<CircularProgress size="4rem" />
+						<Typography variant="h2" gutterBottom color="royalblue">
+							Loading...
+						</Typography>
+					</S.LoadingInner>
+				</S.LoadingRoot>
+				{children}
+			</>
+		);
 	}
 	if (!data) {
 		return <p>Nothing to show...</p>;
