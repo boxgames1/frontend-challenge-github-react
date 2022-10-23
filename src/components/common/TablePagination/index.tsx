@@ -12,17 +12,19 @@ type TablePaginationProps = {
 	itemsPerPage: number[];
 	headers: string[];
 	totalItems: number;
+	ariaLabel?: string;
 };
 
 const TablePagination = ({
-	rows,
+	rows = [],
 	onChangePage,
 	initialPage,
 	onChangeRowsPerPage,
 	initialItemsPerPage,
 	itemsPerPage,
 	headers,
-	totalItems,
+	ariaLabel,
+	totalItems = 0,
 }: TablePaginationProps) => {
 	const [page, setPage] = useState(initialPage);
 	const [rowsPerPage, setRowsPerPage] = useState(initialItemsPerPage);
@@ -53,16 +55,26 @@ const TablePagination = ({
 			<table aria-label="custom pagination table">
 				<thead>
 					<tr>
-						{headers.map((header) => (
-							<th>{header}</th>
+						{headers.map((header, indexHeader) => (
+							<th key={`table-pagination-header-${indexHeader}`}>{header}</th>
 						))}
 					</tr>
 				</thead>
 				<tbody>
-					{rows.map((row) => (
-						<tr>
-							{row.map((cell) => (
-								<td>{cell}</td>
+					{rows.map((row, indexRow) => (
+						<tr
+							key={`table-pagination-row-${indexRow}`}
+							role="row"
+							aria-label={ariaLabel}
+						>
+							{row.map((cell, indexCell) => (
+								<td
+									key={`table-pagination-cell-${indexRow}-${indexCell}`}
+									role="cell"
+									aria-label={ariaLabel}
+								>
+									{cell}
+								</td>
 							))}
 						</tr>
 					))}
