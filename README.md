@@ -10,3 +10,10 @@ Ran out of time so wasn't able to finalize the implementation
 - Added a few testing specs (about 65% coverage) but wasn't able to cover everything as I ran out of time.
 
 Happy with the result despite not being finalized.
+
+# If I would have more time
+
+- Fix pagination and make it work properly with all functions (first/last, prev/next)
+- Add a full testing coverage
+- Use docker-compose to inject secrets and run it in github actions (or any other CI)
+- Improve styling and UI. The current UI is very basic.
