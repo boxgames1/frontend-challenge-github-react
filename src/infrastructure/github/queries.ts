@@ -1,8 +1,21 @@
 import { gql } from '@apollo/client';
 
 export const SEARCH_REPOSITORIES_PAGINATED = gql`
-  query searchRepositoriesPaginated($query: String!, $first: Int!, $after: String) {
-    search(query: $query, type: REPOSITORY, first: $first, after: $after) {
+  query searchRepositoriesPaginated(
+    $query: String!
+    $first: Int
+    $last: Int
+    $before: String
+    $after: String
+  ) {
+    search(
+      query: $query
+      type: REPOSITORY
+      first: $first
+      last: $last
+      before: $before
+      after: $after
+    ) {
       nodes {
         ... on Repository {
           id
@@ -15,7 +28,9 @@ export const SEARCH_REPOSITORIES_PAGINATED = gql`
       repositoryCount
       pageInfo {
         hasNextPage
+        hasPreviousPage
         endCursor
+        startCursor
       }
     }
   }
