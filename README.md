@@ -1,3 +1,14 @@
+# Running the project
+
+- The project has been created with create-react-app. Steps to run it locally are:
+
+  - Install deps: `npm i` or `yarn`
+  - Run the project: `npm run start` or `yarn start`
+
+- To run it on a docker container, in your terminal:
+  - `scripts/docker-build.sh` to build the image.
+  - then `scripts/docker-run.sh`, to run the container.
+
 # Thoughts and explanations
 
 Ran out of time so wasn't able to finalize the implementation
