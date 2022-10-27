@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { Grid } from '@mui/material';
+import { useState } from 'react';
 import DebounceInput from '../../components/common/DebounceInput';
 
 import QueryResult from '../../components/common/QueryResult';
@@ -14,7 +15,16 @@ import * as S from './styles';
 const REPOSITORIES_TABLES_HEADERS = ['Name', '🌟 Stars', '🍴 Forks'];
 
 const HomePage = () => {
-  const { searchQuery, itemsPerPage, setSearchQuery, setItemsPerPage } = useAppContext();
+  const {
+    searchQuery,
+    itemsPerPage,
+    setSearchQuery,
+    setItemsPerPage,
+    paginationPage,
+    setPaginationPage,
+  } = useAppContext();
+
+  const [loadingPagination, setLoadingPagination] = useState(false);
 
   const { loading, error, data, fetchMore } = useQuery(SEARCH_REPOSITORIES_PAGINATED, {
     variables: {
@@ -32,28 +42,53 @@ const HomePage = () => {
     node.stargazerCount,
   ]);
 
-  // TODO: Paginate properly, add next, prev, first and last functionality
-  const handleChangePage = (newPage: number) => {
-    fetchMore({
-      variables: { after: data.search.pageInfo.endCursor },
-      updateQuery: (previousResult, { fetchMoreResult }) => {
-        if (!fetchMoreResult) return previousResult;
-        const newNodes = fetchMoreResult.search.nodes;
-        const pageInfo = fetchMoreResult.search.pageInfo;
-        return {
-          ...previousResult,
-          search: {
-            nodes: [...previousResult.search.nodes, ...newNodes],
-            pageInfo,
-          },
-        };
-      },
-    });
+  const handleChangePage = async (newPage: number) => {
+    // guards
+    const isNext = newPage - paginationPage === 1;
+    const isPrev = paginationPage - newPage === 1;
+    if (
+      (isNext && !data?.search?.pageInfo?.hasNextPage) ||
+      (isPrev && !data?.search?.pageInfo?.hasPreviousPage)
+    )
+      return;
+    setLoadingPagination(true);
+    // load direction
+    const getVariables = () =>
+      isPrev
+        ? {
+            before: data?.search?.pageInfo?.startCursor,
+          }
+        : {
+            after: data?.search?.pageInfo?.endCursor,
+          };
+    try {
+      await fetchMore({
+        variables: getVariables(),
+        updateQuery: (previousResult, { fetchMoreResult }) => {
+          if (!fetchMoreResult) return previousResult;
+          const newNodes = fetchMoreResult.search.nodes;
+          const pageInfo = fetchMoreResult.search.pageInfo;
+          const repositoryCount = fetchMoreResult.search.repositoryCount;
+          return {
+            search: {
+              nodes: newNodes,
+              pageInfo,
+              repositoryCount,
+            },
+          };
+        },
+      });
+      setPaginationPage(newPage);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoadingPagination(false);
+    }
   };
 
   return (
     <S.Root>
-      <QueryResult loading={loading} error={error} data={data}>
+      <QueryResult loading={loading || loadingPagination} error={error} data={data}>
         <Grid container gap={4}>
           <Grid xs={12} item>
             <DebounceInput
@@ -64,9 +99,10 @@ const HomePage = () => {
           </Grid>
           <Grid xs={12} item>
             <TablePagination
-              initialPage={INITIAL_PAGINATION_PAGE}
-              itemsPerPage={[5, 10, 25]}
-              initialItemsPerPage={itemsPerPage}
+              allowedRowsPerPage={[5, 10, 25]}
+              itemsPerPage={itemsPerPage}
+              page={paginationPage - 1}
+              resetPage={() => setPaginationPage(INITIAL_PAGINATION_PAGE)}
               onChangePage={handleChangePage}
               onChangeRowsPerPage={setItemsPerPage}
               rows={tableRows}
