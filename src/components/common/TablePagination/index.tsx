@@ -7,41 +7,35 @@ type TablePaginationProps = {
   rows: Row[];
   onChangePage: (newPage: number) => void;
   onChangeRowsPerPage: (newAmount: number) => void;
-  initialPage: number;
-  initialItemsPerPage: number;
-  itemsPerPage: number[];
+  page: number;
+  allowedRowsPerPage: number[];
+  itemsPerPage: number;
   headers: string[];
   totalItems: number;
   ariaLabel?: string;
+  resetPage: () => void;
 };
 
 const TablePagination = ({
   rows = [],
   onChangePage,
-  initialPage,
+  page,
   onChangeRowsPerPage,
-  initialItemsPerPage,
   itemsPerPage,
   headers,
+  allowedRowsPerPage,
   ariaLabel,
   totalItems = 0,
+  resetPage,
 }: TablePaginationProps) => {
-  const [page, setPage] = useState(initialPage);
-  const [rowsPerPage, setRowsPerPage] = useState(initialItemsPerPage);
-
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 1 ? Math.max(0, page * rowsPerPage - rows.length) : 0;
-
   const handleChangePage = (event: MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    setPage(newPage);
-    onChangePage(newPage);
+    onChangePage(newPage + 1);
   };
 
   const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const newAmount = parseInt(event.target.value, 10);
-    setRowsPerPage(newAmount);
     onChangeRowsPerPage(newAmount);
-    setPage(1);
+    resetPage();
   };
 
   return (
@@ -68,27 +62,22 @@ const TablePagination = ({
               ))}
             </tr>
           ))}
-
-          {emptyRows > 0 && (
-            <tr style={{ height: 34 * emptyRows }}>
-              <td colSpan={3} />
-            </tr>
-          )}
         </tbody>
         <tfoot>
           <tr>
             <S.CustomTablePagination
-              rowsPerPageOptions={itemsPerPage}
+              rowsPerPageOptions={allowedRowsPerPage}
               count={totalItems}
-              rowsPerPage={rowsPerPage}
-              page={page - 1}
+              rowsPerPage={itemsPerPage}
+              page={page}
               componentsProps={{
                 select: {
                   'aria-label': 'rows per page',
+                  role: 'listbox',
                 },
                 actions: {
-                  showFirstButton: true,
-                  showLastButton: true,
+                  showFirstButton: false,
+                  showLastButton: false,
                 } as any,
               }}
               onPageChange={handleChangePage}
