@@ -30,7 +30,8 @@
     "serve": "react-dotenv && serve build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier -w ."
+    "prettier": "prettier -w .",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -41,7 +42,7 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint --fix"
+      "react-scripts eslint --fix"
     ]
   },
   "browserslist": {
@@ -57,9 +58,12 @@
     ]
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.13.7",
+    "@graphql-codegen/client-preset": "^1.1.1",
     "@types/lodash": "^4.14.186",
-    "husky": "^8.0.1",
+    "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "yarn": "^1.22.19"
   }
 }
