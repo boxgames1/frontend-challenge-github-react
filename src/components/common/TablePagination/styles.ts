@@ -1,11 +1,11 @@
-import { styled } from "@mui/system";
+import { styled } from '@mui/system';
 import TablePaginationUnstyled, {
-	tablePaginationUnstyledClasses as classes,
-} from "@mui/base/TablePaginationUnstyled";
-import colors from "../../../theme/colors";
+  tablePaginationUnstyledClasses as classes,
+} from '@mui/base/TablePaginationUnstyled';
+import colors from '../../../theme/colors';
 
-export const Root = styled("div")(
-	({ theme }) => `
+export const Root = styled('div')(
+  ({ theme }) => `
     table {
       font-family: IBM Plex Sans, sans-serif;
       font-size: 0.875rem;
@@ -15,23 +15,19 @@ export const Root = styled("div")(
   
     td,
     th {
-      border: 1px solid ${
-				theme.palette.mode === "dark" ? colors.grey[800] : colors.grey[200]
-			};
+      border: 1px solid ${theme.palette.mode === 'dark' ? colors.grey[800] : colors.grey[200]};
       text-align: left;
       padding: 6px;
     }
   
     th {
-      background-color: ${
-				theme.palette.mode === "dark" ? colors.grey[900] : colors.grey[100]
-			};
+      background-color: ${theme.palette.mode === 'dark' ? colors.grey[900] : colors.grey[100]};
     }
-    `
+    `,
 );
 
 export const CustomTablePagination = styled(TablePaginationUnstyled)(
-	({ theme }) => `
+  ({ theme }) => `
     & .${classes.spacer} {
       display: none;
     }
@@ -54,22 +50,16 @@ export const CustomTablePagination = styled(TablePaginationUnstyled)(
   
     & .${classes.select}{
       padding: 2px;
-      border: 1px solid ${
-				theme.palette.mode === "dark" ? colors.grey[800] : colors.grey[200]
-			};
+      border: 1px solid ${theme.palette.mode === 'dark' ? colors.grey[800] : colors.grey[200]};
       border-radius: 50px;
       background-color: transparent;
   
       &:hover {
-        background-color: ${
-					theme.palette.mode === "dark" ? colors.grey[800] : colors.grey[50]
-				};
+        background-color: ${theme.palette.mode === 'dark' ? colors.grey[800] : colors.grey[50]};
       }
   
       &:focus {
-        outline: 1px solid ${
-					theme.palette.mode === "dark" ? colors.blue[400] : colors.blue[200]
-				};
+        outline: 1px solid ${theme.palette.mode === 'dark' ? colors.blue[400] : colors.blue[200]};
       }
     }
   
@@ -83,9 +73,7 @@ export const CustomTablePagination = styled(TablePaginationUnstyled)(
   
     & .${classes.actions} {
       padding: 2px;
-      border: 1px solid ${
-				theme.palette.mode === "dark" ? colors.grey[800] : colors.grey[200]
-			};
+      border: 1px solid ${theme.palette.mode === 'dark' ? colors.grey[800] : colors.grey[200]};
       border-radius: 50px;
       text-align: center;
     }
@@ -97,16 +85,12 @@ export const CustomTablePagination = styled(TablePaginationUnstyled)(
       background-color: transparent;
   
       &:hover {
-        background-color: ${
-					theme.palette.mode === "dark" ? colors.grey[800] : colors.grey[50]
-				};
+        background-color: ${theme.palette.mode === 'dark' ? colors.grey[800] : colors.grey[50]};
       }
   
       &:focus {
-        outline: 1px solid ${
-					theme.palette.mode === "dark" ? colors.blue[400] : colors.blue[200]
-				};
+        outline: 1px solid ${theme.palette.mode === 'dark' ? colors.blue[400] : colors.blue[200]};
       }
     }
-    `
+    `,
 );

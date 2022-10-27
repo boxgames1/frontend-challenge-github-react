@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 type LayoutProps = {
-	children: ReactNode;
+  children: ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
-	return <div>{children}</div>;
+  return <div>{children}</div>;
 };
 
 export default Layout;
