@@ -86,8 +86,10 @@
     "repositoryCount": 3363477,
     "pageInfo": {
       "__typename": "PageInfo",
+      "endCursor": "Y3Vyc29yOjEw",
       "hasNextPage": true,
-      "endCursor": "Y3Vyc29yOjEw"
+      "hasPreviousPage": false,
+      "startCursor": "Y3Vyc29yOjE="
     }
   }
 }

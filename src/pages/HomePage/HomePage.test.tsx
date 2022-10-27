@@ -86,6 +86,49 @@ describe('HomePage integration tests', () => {
       expect(cells[0].firstChild).toHaveAttribute('href', 'https://github.com/reduxjs/redux');
     });
   });
+
+  describe('pagination', () => {
+    beforeEach(async () => {
+      renderPage();
+      await waitForElementToBeRemoved(getLoading());
+    });
+    it('should show page 2 after clicking next', async () => {
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: /Go to next page/i,
+        }),
+      );
+      await waitForElementToBeRemoved(getLoading());
+
+      expect(getRows()).toHaveLength(10);
+      const cells = getRowCells(0);
+      expect(within(cells[0]).getByText(/reactjs101/i)).toBeInTheDocument();
+      expect(cells[1].textContent).toBe('1212');
+      expect(cells[2].textContent).toBe('4109');
+      expect(cells[0].firstChild).toHaveAttribute('href', 'https://github.com/kdchang/reactjs101');
+    });
+    it('should show page 1 after clicking next and then prev', async () => {
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: /Go to next page/i,
+        }),
+      );
+      await waitForElementToBeRemoved(getLoading());
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: /Go to previous page/i,
+        }),
+      );
+      await waitForElementToBeRemoved(getLoading());
+
+      expect(getRows()).toHaveLength(10);
+      const cells = getRowCells(0);
+      expect(within(cells[0]).getByText(/react/i)).toBeInTheDocument();
+      expect(cells[1].textContent).toBe('1686');
+      expect(cells[2].textContent).toBe('4666');
+      expect(cells[0].firstChild).toHaveAttribute('href', 'https://github.com/duxianwei520/react');
+    });
+  });
 });
 
 export {};

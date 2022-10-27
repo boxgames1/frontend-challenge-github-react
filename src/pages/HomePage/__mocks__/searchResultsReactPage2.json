@@ -1,0 +1,95 @@
+{
+  "search": {
+    "nodes": [
+      {
+        "id": "MDEwOlJlcG9zaXRvcnk1MzIzNzc0OA==",
+        "name": "reactjs101",
+        "url": "https://github.com/kdchang/reactjs101",
+        "forkCount": 1212,
+        "stargazerCount": 4109,
+        "__typename": "Repository"
+      },
+      {
+        "id": "MDEwOlJlcG9zaXRvcnkxMjkyNjk2Mw==",
+        "name": "reaction",
+        "url": "https://github.com/reactioncommerce/reaction",
+        "forkCount": 2155,
+        "stargazerCount": 11827,
+        "__typename": "Repository"
+      },
+      {
+        "id": "MDEwOlJlcG9zaXRvcnkxNTQ4MDA2Nw==",
+        "name": "react-bootstrap",
+        "url": "https://github.com/react-bootstrap/react-bootstrap",
+        "forkCount": 3422,
+        "stargazerCount": 21194,
+        "__typename": "Repository"
+      },
+      {
+        "id": "MDEwOlJlcG9zaXRvcnk0NTQzMTg5OA==",
+        "name": "react-virtualized",
+        "url": "https://github.com/bvaughn/react-virtualized",
+        "forkCount": 3062,
+        "stargazerCount": 24330,
+        "__typename": "Repository"
+      },
+      {
+        "id": "MDEwOlJlcG9zaXRvcnk2ODYyNjcxNg==",
+        "name": "ReactNativeReduxCasts",
+        "url": "https://github.com/StephenGrider/ReactNativeReduxCasts",
+        "forkCount": 1327,
+        "stargazerCount": 2576,
+        "__typename": "Repository"
+      },
+      {
+        "id": "MDEwOlJlcG9zaXRvcnk0OTgyMDYyNw==",
+        "name": "react-native-svg",
+        "url": "https://github.com/software-mansion/react-native-svg",
+        "forkCount": 949,
+        "stargazerCount": 6394,
+        "__typename": "Repository"
+      },
+      {
+        "id": "MDEwOlJlcG9zaXRvcnk0ODg2MzQxOA==",
+        "name": "react-slingshot",
+        "url": "https://github.com/coryhouse/react-slingshot",
+        "forkCount": 2731,
+        "stargazerCount": 9775,
+        "__typename": "Repository"
+      },
+      {
+        "id": "MDEwOlJlcG9zaXRvcnkxMTE2Njc5NTk=",
+        "name": "umi",
+        "url": "https://github.com/umijs/umi",
+        "forkCount": 2355,
+        "stargazerCount": 13221,
+        "__typename": "Repository"
+      },
+      {
+        "id": "MDEwOlJlcG9zaXRvcnkyNTQyNzgxNw==",
+        "name": "react-dnd",
+        "url": "https://github.com/react-dnd/react-dnd",
+        "forkCount": 1882,
+        "stargazerCount": 18383,
+        "__typename": "Repository"
+      },
+      {
+        "id": "MDEwOlJlcG9zaXRvcnk1NjM1MjE1Nw==",
+        "name": "reactotron",
+        "url": "https://github.com/infinitered/reactotron",
+        "forkCount": 905,
+        "stargazerCount": 13771,
+        "__typename": "Repository"
+      }
+    ],
+    "repositoryCount": 3375435,
+    "pageInfo": {
+      "hasNextPage": true,
+      "hasPreviousPage": true,
+      "endCursor": "Y3Vyc29yOjIw",
+      "startCursor": "Y3Vyc29yOjEx",
+      "__typename": "PageInfo"
+    },
+    "__typename": "SearchResultItemConnection"
+  }
+}
